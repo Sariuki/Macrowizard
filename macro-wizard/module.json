@@ -30,9 +30,9 @@
     "templates/edit-step-dialog.html"
   ],
   "packs": [],
-  "url": "https://github.com/Sariuki/Macro-Wizard/tree/MacroWizard",
-  "manifest": "https://github.com/Sariuki/Macro-Wizard/releases/download/MacroWizard/module.json",
-  "download": "https://github.com/Sariuki/Macro-Wizard/archive/refs/tags/MacroWizard.zip",
+  "url": "https://github.com/Sariuki/Macrowizard/tree/MacroWizard",
+  "manifest": "https://github.com/Sariuki/Macrowizard/releases/download/wizard/module.json",
+  "download": "https://github.com/Sariuki/Macrowizard/archive/refs/heads/main.zip",
   "relationships": {
     "requires": [
       {
