@@ -1,0 +1,94 @@
+<!-- modules/macro-wizard/templates/macro-wizard.html -->
+
+<section class="macro-wizard">
+
+  <!-- TABS -->
+  <nav class="tabs">
+    <a class="tab-link active" data-tab="general"><i class="fas fa-list"></i> Secuencia</a>
+    <a class="tab-link" data-tab="preview"><i class="fas fa-eye"></i> Vista Previa</a>
+    <a class="tab-link" data-tab="presets"><i class="fas fa-star"></i> Presets</a>
+    <a class="tab-link" data-tab="advanced"><i class="fas fa-cogs"></i> Avanzado</a>
+  </nav>
+
+  <!-- TAB: SECUENCIA PRINCIPAL -->
+  <div class="tab-content" data-tab="general" style="display: block;">
+    <header>
+      <button class="add-step"><i class="fas fa-plus"></i> Añadir Paso</button>
+      <button class="undo" {{#unless canUndo}}disabled{{/unless}}><i class="fas fa-undo"></i></button>
+      <button class="redo" {{#unless canRedo}}disabled{{/unless}}><i class="fas fa-redo"></i></button>
+      <button class="save-macro" {{#unless dirty}}disabled{{/unless}}><i class="fas fa-save"></i> Guardar</button>
+      <button class="export-macro"><i class="fas fa-download"></i></button>
+      <button class="import-macro"><i class="fas fa-upload"></i></button>
+    </header>
+
+    <ul class="step-list">
+      {{#each steps as |step idx|}}
+      <li class="step" data-index="{{idx}}">
+        <span class="step-label">
+          <strong>{{step.type}}</strong>
+          {{#if step.animation}}<span class="badge">{{step.animation}}</span>{{/if}}
+          {{#if step.token}}<span class="badge">{{step.token}}</span>{{/if}}
+          {{#if step.sound}}<span class="badge">{{step.sound}}</span>{{/if}}
+        </span>
+        <span class="step-actions">
+          <button class="edit-step" data-index="{{idx}}"><i class="fas fa-edit"></i></button>
+          <button class="move-step-up" data-index="{{idx}}" {{#if @first}}disabled{{/if}}><i class="fas fa-arrow-up"></i></button>
+          <button class="move-step-down" data-index="{{idx}}" {{#if @last}}disabled{{/if}}><i class="fas fa-arrow-down"></i></button>
+          <button class="delete-step" data-index="{{idx}}"><i class="fas fa-trash"></i></button>
+        </span>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <!-- TAB: VISTA PREVIA -->
+  <div class="tab-content" data-tab="preview" style="display: none;">
+    <button class="preview-macro"><i class="fas fa-eye"></i> Previsualizar macro</button>
+    {{#if previewActive}}
+      <div class="preview-message"><i class="fas fa-spinner fa-spin"></i> Ejecutando vista previa...</div>
+    {{/if}}
+    <div class="preview-note">
+      <small>La vista previa ejecutará cada paso de la secuencia en el canvas actual. Puede demorar dependiendo de la cantidad de pasos.</small>
+    </div>
+  </div>
+
+  <!-- TAB: PRESETS -->
+  <div class="tab-content" data-tab="presets" style="display: none;">
+    <label for="preset-select">Seleccionar preset:</label>
+    <select class="preset-select" id="preset-select">
+      <option value="">-- Ninguno --</option>
+      {{#each presets as |preset|}}
+        <option value="{{preset.id}}" {{#ifEquals ../selectedPreset preset.id}}selected{{/ifEquals}}>{{preset.label}}</option>
+      {{/each}}
+    </select>
+    <div class="presets-info">
+      <small>Los presets son secuencias prearmadas para facilitar animaciones frecuentes (rayos, explosiones, combos, etc).</small>
+    </div>
+  </div>
+
+  <!-- TAB: AVANZADO -->
+  <div class="tab-content" data-tab="advanced" style="display: none;">
+    <div class="form-group">
+      <label>
+        <input type="checkbox" name="autoPreview" {{#if autoPreview}}checked{{/if}}> Vista previa automática tras cada cambio
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        Estado: 
+        {{#if dirty}}
+          <span class="badge badge-warning">No guardado</span>
+        {{else}}
+          <span class="badge badge-success">Guardado</span>
+        {{/if}}
+      </label>
+    </div>
+    <div class="form-group">
+      <label>Pasos en secuencia: <span class="badge">{{steps.length}}</span></label>
+    </div>
+    <div class="form-group">
+      <small>Esta sección te permitirá configurar opciones avanzadas y ver el estado interno de la macro.</small>
+    </div>
+  </div>
+
+</section>

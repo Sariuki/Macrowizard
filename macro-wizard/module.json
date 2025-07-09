@@ -1,0 +1,55 @@
+{
+  "id": "macro-wizard",
+  "title": "Macro Wizard",
+  "description": "Un asistente visual avanzado para crear secuencias de animaciones y macros en Foundry VTT usando Sequencer y JB2A Premium.",
+  "version": "2.0.0",
+  "authors": [
+    {
+      "name": "Sara Moya",
+      "email": "tucorreo@ejemplo.com",
+      "url": "https://github.com/Sariuki"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "es",
+      "name": "Español",
+      "path": "lang/es.json"
+    }
+  ],
+  "esmodules": [
+    "scripts/main.js",
+    "scripts/macro-creator.js",
+    "scripts/animation-library.js"
+  ],
+  "styles": [
+    "styles/macro-wizard.css"
+  ],
+  "templates": [
+    "templates/macro-wizard.html",
+    "templates/edit-step-dialog.html"
+  ],
+  "packs": [],
+  "url": "https://github.com/Sariuki/Macro-Wizard/tree/MacroWizard",
+  "manifest": "https://github.com/Sariuki/Macro-Wizard/releases/download/MacroWizard/module.json",
+  "download": "https://github.com/Sariuki/Macro-Wizard/archive/refs/tags/MacroWizard.zip",
+  "relationships": {
+    "requires": [
+      {
+        "id": "sequencer",
+        "type": "module",
+        "manifest": "https://github.com/fantasycalendar/FoundryVTT-Sequencer/raw/master/module.json"
+      },
+      {
+        "id": "jb2a_patreon",
+        "type": "module",
+        "manifest": "https://github.com/Jules-Bens-David/animated-spell-effects/raw/main/module.json"
+      }
+    ]
+  },
+  "compatibility": {
+    "minimum": "11",
+    "verified": "12"
+  },
+  "protected": false
+}

@@ -1,0 +1,198 @@
+/* styles/macro-wizard.css */
+
+/* Contenedor principal */
+.macro-wizard {
+  font-family: var(--font-primary, "Roboto", Arial, sans-serif);
+  padding: 1em;
+  background: #1c1c1e;
+  color: #e2e2e2;
+  border-radius: 8px;
+}
+
+/* Tabs */
+.macro-wizard .tabs {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid #444;
+}
+.macro-wizard .tabs a {
+  padding: 0.6em 1em;
+  color: #fff;
+  text-decoration: none;
+  background: none;
+  border: none;
+  border-radius: 6px 6px 0 0;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.macro-wizard .tabs a.active {
+  background: #252528;
+  border-bottom: 2px solid #1976d2;
+  color: #ffe96c;
+}
+
+/* Contenido de cada tab */
+.macro-wizard .tab-content {
+  padding: 1em 0 0 0;
+}
+
+/* Cabecera de botones */
+.macro-wizard header {
+  display: flex;
+  gap: 0.6em;
+  margin-bottom: 1em;
+}
+.macro-wizard header button {
+  background: #282b36;
+  color: #ffe96c;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.macro-wizard header button[disabled] {
+  background: #222;
+  color: #666;
+  cursor: not-allowed;
+}
+.macro-wizard header button:hover:enabled {
+  background: #343650;
+}
+
+/* Lista de pasos */
+.macro-wizard .step-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.macro-wizard .step {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #252528;
+  margin-bottom: 0.5em;
+  padding: 0.6em 1em;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px #0006;
+  cursor: grab;
+  transition: background 0.2s;
+}
+.macro-wizard .step:hover {
+  background: #31313a;
+}
+.macro-wizard .step-label {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+}
+.macro-wizard .badge {
+  background: #1976d2;
+  color: #fff;
+  padding: 0.1em 0.5em;
+  border-radius: 3px;
+  font-size: 0.95em;
+  margin-left: 0.4em;
+  vertical-align: middle;
+}
+.macro-wizard .badge-warning {
+  background: #e69a00;
+  color: #1c1c1e;
+}
+.macro-wizard .badge-success {
+  background: #41c700;
+  color: #1c1c1e;
+}
+.macro-wizard .step-actions button {
+  background: none;
+  border: none;
+  color: #ffe96c;
+  font-size: 1em;
+  margin-left: 0.25em;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+.macro-wizard .step-actions button:hover:not([disabled]) {
+  color: #60dfff;
+}
+.macro-wizard .step-actions button[disabled] {
+  color: #444;
+}
+
+/* Formularios y selects */
+.macro-wizard .form-group {
+  margin-bottom: 1.1em;
+}
+.macro-wizard label {
+  font-weight: 600;
+  color: #ffe96c;
+}
+.macro-wizard select,
+.macro-wizard input[type="text"],
+.macro-wizard textarea {
+  width: 100%;
+  padding: 0.4em;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background: #252528;
+  color: #fff;
+  font-size: 1em;
+  margin-top: 0.2em;
+}
+.macro-wizard textarea {
+  resize: vertical;
+  min-height: 60px;
+  max-height: 180px;
+}
+
+/* Botones grandes (Aceptar, Cancelar, Preview) */
+.macro-wizard button.ok,
+.macro-wizard button.cancel,
+.macro-wizard .preview-macro {
+  background: #41c700;
+  color: #1c1c1e;
+  padding: 0.5em 1.3em;
+  border-radius: 5px;
+  margin-right: 0.8em;
+  border: none;
+  font-weight: bold;
+  font-size: 1.05em;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.macro-wizard button.cancel {
+  background: #e34848;
+  color: #fff;
+}
+.macro-wizard button.ok:hover,
+.macro-wizard .preview-macro:hover {
+  background: #62ff24;
+}
+.macro-wizard button.cancel:hover {
+  background: #ff6c6c;
+}
+
+/* Nota y mensajes */
+.macro-wizard .preview-note,
+.macro-wizard .presets-info {
+  background: #222235;
+  color: #b5c3ff;
+  border-left: 4px solid #1976d2;
+  padding: 0.6em 1em;
+  margin-top: 1.2em;
+  border-radius: 4px;
+  font-size: 0.98em;
+}
+.macro-wizard .preview-message {
+  margin: 1em 0;
+  color: #41c700;
+  font-weight: bold;
+  font-size: 1.12em;
+}
+
+.macro-wizard small {
+  color: #b2b2b2;
+  font-size: 0.94em;
+}
